@@ -1,0 +1,145 @@
+* {margin:0;padding:0;box-sizing: content-box;}
+
+html{
+    height: 100vh;
+}
+
+body{
+    background-color: hsl(0, 0%, 5%);
+
+    font-family: 'Poppins', serif;
+    color: hsl(0, 0%, 90%);
+    height: 100vh;
+}
+
+u{
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+}
+
+button, a, input, p{
+    font-size: 1.2em;
+    letter-spacing: 0.08em;
+    font-family: 'Poppins', serif;
+}
+
+/* ===============================
+        Page d'Acceuil
+=============================== */
+#Home.container, #Login.container{
+    min-height: 80%;
+}
+
+.container{
+    margin: auto;
+    width: 80%;
+    min-width: 250px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title{
+    margin-bottom: 10px;
+}
+
+.text-center{
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+/* ===============================
+        Page de Connexion
+=============================== */
+form#Connexion{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: 20px;
+    width:100%;
+}
+form#Connexion input{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    
+    min-width: 250px;
+    width: 100%;
+    max-width: 500px;
+
+    background-color: hsl(0, 0%, 90%);
+}
+
+form#Connexion input[type="password"]{
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-login{
+    position: relative;
+    bottom: 0px;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+    background-color: hsl(0, 0%, 90%);
+    padding: 10px 30px;
+    width: 150px;
+
+    text-decoration: none;
+    color: hsl(0, 0%, 5%);
+    font-weight: bolder;
+    font-size: 1.2em;
+
+    border: 4px solid hsl(0, 0%, 10%);
+    border-radius: 10px;
+
+    transition: all 0.1s;
+}
+
+.btn-login:hover{
+    transform: scale(105%);
+}
+
+.btn-login:focus{
+    border-color: red;
+}
+
+.btn-login:active{
+    background-color: hsl(0, 0%, 5%);
+    color:hsl(0, 0%, 90%);
+    border: hsl(0, 0%, 90%);
+}
