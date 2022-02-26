@@ -59,6 +59,21 @@ button, a, input, p{
 /* ===============================
         Page de Connexion
 =============================== */
+.alerte{
+    padding: 10px 20px;
+    margin-bottom: 20px;
+
+    min-width: 250px;
+    width: 100%;
+    max-width: 500px;
+    
+    background-color: hsl(0, 100%, 25%);
+
+    text-align: center;
+    border-radius: 10px;
+}
+
+
 form#Connexion{
     display: flex;
     align-items: center;
@@ -67,6 +82,7 @@ form#Connexion{
     margin-top: 20px;
     width:100%;
 }
+
 form#Connexion input{
     padding: 10px 20px;
     border-radius: 10px;
@@ -84,6 +100,39 @@ form#Connexion input[type="password"]{
 }
 
 
+
+
+
+
+
+
+
+
+
+
+/* ===============================
+        Page des compétences
+=============================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===============================
+        Page du profile
+=============================== */
 
 
 

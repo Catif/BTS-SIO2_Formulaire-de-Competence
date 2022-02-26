@@ -13,7 +13,8 @@ $router = new AltoRouter();
 // Map routes
 $router->map('GET', '/', 'index', 'HomePage');
 $router->map('GET|POST', '/login', 'login', 'Login');
-$router->map('GET', '/panel/profile/[a:pageProfile]', 'panel/profile', 'Profile user');
+$router->map('GET', '/panel/profile', 'panel/profile/index', 'Profile user');
+$router->map('GET', '/panel/profile/setting', 'panel/profile/setting', 'Setting Profile');
 $router->map('GET', '/panel/skills/[a:filterSkill]', 'panel/skills', 'Skills');
 
 $routerName = [ 

@@ -2,13 +2,17 @@
 $message = '';
 
 if(isset($_POST['email'], $_POST['password'])){
-    $message = $_POST;
+    if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+        
+    } else {
+        $message = 'Votre email à un format invalide.';
+    }
 }
 ?>
 
 <?php if($message != null): ?>
     <div class="alerte">
-        <?php var_dump($message) ?>
+        <?= $message ?>
     </div>
 <?php endif; ?>
 
@@ -22,7 +26,7 @@ if(isset($_POST['email'], $_POST['password'])){
 </p>
 
 <form id="Connexion" action="" method="POST">
-    <input name="email" placeholder="Email professionnel" required>
+    <input name="email" type="email" placeholder="Email professionnel" required>
     <input type="password" name="password" placeholder="Mot de passe" required>
 
     <button type="submit" class="btn-login">Se connecter</button>
