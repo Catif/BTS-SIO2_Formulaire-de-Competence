@@ -6,3 +6,5 @@ Après installation du repo, lancer la commande :
 `php composer install`
 
 Modifier le fichier **.env.example** en **.env** et modifier ses informations.
+
+Installer la Base de donnée **BDD-SIO2.sql**.
