@@ -7,4 +7,4 @@ Après installation du repo, lancer la commande :
 
 Modifier le fichier **.env.example** en **.env** et modifier ses informations.
 
-Installer la Base de donnée **BDD-SIO2.sql**.
+Installer la Base de donnée avec **BDD-SIO2.sql**.
