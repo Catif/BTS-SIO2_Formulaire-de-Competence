@@ -13,15 +13,17 @@ $router = new AltoRouter();
 // Map routes
 $router->map('GET', '/', 'index', 'HomePage');
 $router->map('GET|POST', '/login', 'login', 'Login');
-$router->map('GET', '/panel/profile', 'panel/profile/index', 'Profile user');
-$router->map('GET', '/panel/profile/setting', 'panel/profile/setting', 'Setting Profile');
+$router->map('GET', '/logout', 'logout', 'Disconnect');
+$router->map('GET', '/panel/first', 'panel/first', 'First Login');
+$router->map('GET', '/panel/setting', 'panel/setting', 'Setting Profile');
 $router->map('GET', '/panel/skills/[a:filterSkill]', 'panel/skills', 'Skills');
 
 $routerName = [ 
-    ['id' => 'index',               'title' => 'Accueil',                    'divId' => 'Home'],
-    ['id' => 'login',               'title' => 'Page de connexion',          'divId' => 'Login'],
-    ['id' => 'panel/profile',       'title' => 'Profil',                     'divId' => 'Forget-Password'],
-    ['id' => 'panel/skills',        'title' => 'Compétence',                 'divId' => 'Skills']
+    ['id' => 'index',                  'title' => 'Accueil',                    'divId' => 'Home',               'connected' => false],
+    ['id' => 'login',                  'title' => 'Page de connexion',          'divId' => 'Login',              'connected' => false],
+    ['id' => 'panel/first',            'title' => 'Première connexion',         'divId' => 'First',              'connected' => true,            'first' => true],
+    ['id' => 'panel/setting',          'title' => 'Paramètre',                  'divId' => 'Settings',           'connected' => true,            'first' => false],
+    ['id' => 'panel/skills',           'title' => 'Compétence',                 'divId' => 'Skills',             'connected' => true,            'first' => false]
 ];
 
 

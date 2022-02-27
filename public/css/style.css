@@ -23,31 +23,134 @@ button, a, input, p{
     font-family: 'Poppins', serif;
 }
 
+form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: 20px;
+    width:100%;
+}
+
+form input{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    
+    min-width: 250px;
+    width: 100%;
+    max-width: 500px;
+
+    background-color: hsl(0, 0%, 90%);
+}
+
+form input[type='submit']{
+    margin-top: 0px;
+    padding: 10px 20px;
+
+    border-radius: 10px;
+    border: none;
+    
+    min-width: 250px;
+    width: 100%;
+    max-width: 500px;
+
+    color:hsl(0, 0%, 90%);
+    background-color: hsl(0, 0%, 5%);
+}
+
+form input:disabled{
+    color: #000;
+    background-color: hsl(0, 0%, 75%);
+}
+form input:disabled:hover{
+    cursor: not-allowed;
+}
+
+
+
+
+
+
+/* ===============================
+            Navbar
+=============================== */
+navbar{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    height: 100%;
+    width: 300px;
+    padding: 10px 20px;
+
+    font-size: 1.2em;
+    background-color: hsl(0, 0%, 7%);
+
+    box-shadow: -5px 0px 10px 2px hsl(0, 0%, 100%);
+}
+
+.nav-profile{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.nav-profile .nav-icon a:first-child{
+    margin-right: 2px;
+}
+
+.nav-profile .nav-icon a .iconify{
+    color: hsl(0, 0%, 90%);
+}
+
+
+.nav-skills{
+    margin: auto 0;
+}
+
+.nav-skills-items{
+    display: flex;
+    flex-direction: column;
+    gap:50px;
+}
+
+
+.nav-skills-item a{
+    color: hsl(0, 0%, 90%);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.8em;
+}
+
+.nav-skills-list{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+    color: hsl(0, 0%, 90%);
+    text-decoration: none;
+    margin-left: 40px;
+    font-size: 0.9em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ===============================
         Page d'Acceuil
 =============================== */
-#Home.container, #Login.container{
-    min-height: 80%;
-}
 
-.container{
-    margin: auto;
-    width: 80%;
-    min-width: 250px;
-
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-.title{
-    margin-bottom: 10px;
-}
-
-.text-center{
-    text-align: center;
-}
 
 
 
@@ -73,31 +176,73 @@ button, a, input, p{
     border-radius: 10px;
 }
 
-
-form#Connexion{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-
-    margin-top: 20px;
-    width:100%;
-}
-
-form#Connexion input{
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: none;
-    
-    min-width: 250px;
-    width: 100%;
-    max-width: 500px;
-
-    background-color: hsl(0, 0%, 90%);
-}
-
 form#Connexion input[type="password"]{
     margin-top: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===============================
+        Page de setting
+=============================== */
+.card{
+    background-color: hsl(0, 0%, 10%);
+    width: 80%;
+    padding: 20px;
+    margin-top: 10px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    border-radius: 10px;
+}
+
+.card .column{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+}
+
+.card .column:last-child{
+    align-items: flex-end;
+}
+
+.card .column input{
+    font-size: 1em;
+    width: 80%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -130,34 +275,63 @@ form#Connexion input[type="password"]{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ===============================
-        Page du profile
+        Classes commune
 =============================== */
+#Home.container, #Login.container{
+    min-height: 80%;
+}
+
+.container.panel{
+    max-width: calc(100% - 300px);
+    margin-left: 300px;
+    padding-top: 5%;
+}
+
+.container{
+    margin: auto;
+    width: 80%;
+    min-width: 250px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title{
+    margin-bottom: 10px;
+}
+
+.sub-title{
+    text-align:left;
+}
+
+
+.text-center{
+    text-align: center;
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.btn-login{
+.btn-white{
     position: relative;
     bottom: 0px;
 
@@ -179,15 +353,15 @@ form#Connexion input[type="password"]{
     transition: all 0.1s;
 }
 
-.btn-login:hover{
+.btn-white:hover{
     transform: scale(105%);
 }
 
-.btn-login:focus{
+.btn-white:focus{
     border-color: red;
 }
 
-.btn-login:active{
+.btn-white:active{
     background-color: hsl(0, 0%, 5%);
     color:hsl(0, 0%, 90%);
     border: hsl(0, 0%, 90%);

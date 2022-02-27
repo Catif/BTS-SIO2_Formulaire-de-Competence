@@ -29,5 +29,5 @@ if(isset($_POST['email'], $_POST['password'])){
     <input name="email" type="email" placeholder="Email professionnel" required>
     <input type="password" name="password" placeholder="Mot de passe" required>
 
-    <button type="submit" class="btn-login">Se connecter</button>
+    <button type="submit" class="btn-white">Se connecter</button>
 </form>
