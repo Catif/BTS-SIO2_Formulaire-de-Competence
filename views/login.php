@@ -1,13 +1,9 @@
 <?php
-$message = '';
-
-if(isset($_POST['email'], $_POST['password'])){
-    if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-        
-    } else {
-        $message = 'Votre email à un format invalide.';
-    }
+if (isset($message)){
+    $message = null;
 }
+
+
 ?>
 
 <?php if($message != null): ?>

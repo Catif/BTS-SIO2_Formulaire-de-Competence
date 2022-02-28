@@ -18,6 +18,7 @@ $_SESSION['user-specialite'] = 'SLAM';
             <input type="text" value="<?= $_SESSION['user-classe'] ?>" disabled>
             <input type="text" value="<?= $_SESSION['user-specialite'] ?>" disabled>
         </div>
+        
         <div class="column">
             <p><u>Changer son mot de passe</u></p>
             <input type="password" name="old_password" placeholder="Ancien mot de passe" required>

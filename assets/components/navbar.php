@@ -3,7 +3,7 @@
         <u><?= $_SESSION['user-name'] ?></u>
 
         <div class="nav-icon">
-            <a href="<?= HTML_ROOT ?>/panel/setting"><span class="iconify" data-icon="ci:settings-filled"></span></a>
+            <a href="<?= HTML_ROOT ?>/panel/setting"><span class="iconify" data-icon="bxs:user"></span></a>
             <a href="<?= HTML_ROOT ?>/logout"><span class="iconify" data-icon="pepicons:leave"></span></a>
         </div>
     </div>
