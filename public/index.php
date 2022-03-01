@@ -20,13 +20,10 @@ $router = new AltoRouter();
             $router->map('GET|POST', '/panel/setting', 'panel/setting', 'Setting Profile');
 
         // Routes Skills
-            $router->map('GET|POST', '/panel/skills/block', 'panel/skills', 'Skills Block');
+            $router->map('GET|POST', '/panel/skills/[a:category]', 'panel/skills', 'Skills Block');
+            
             $router->map('GET|POST', '/panel/skills/block/[i:id]', 'panel/skills', 'Skills Block with ID');
-
-            $router->map('GET|POST', '/panel/skills/knowledge', 'panel/skills', 'Skills Knowledge');
             $router->map('GET|POST', '/panel/skills/knowledge/[i:id]', 'panel/skills', 'Skills Knowledge with ID');
-
-            $router->map('GET|POST', '/panel/skills/indicator', 'panel/skills', 'Skills Indicator');
             $router->map('GET|POST', '/panel/skills/indicator/[i:id]', 'panel/skills', 'Skills Indicator with ID');
 
 

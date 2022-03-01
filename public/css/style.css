@@ -249,17 +249,39 @@ form#Connexion input[type="password"]{
 
 
 
-
-
-
-
-
-
 /* ===============================
         Page des compétences
 =============================== */
+table.skills{
+    background-color: hsl(0, 0%, 90%);
+    color: hsl(0, 0%, 10%);
 
+    border-radius: 10px;
 
+    width: 90%;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+table.skills thead tr{
+    border-bottom: 2px solid hsl(0, 0%, 40%);
+}
+
+table.skills tbody tr:nth-child(odd){
+    background-color: hsl(0, 0%, 80%);
+}
+
+table.skills tbody tr:hover{
+    background-color: hsl(0, 0%, 55%);
+}
+
+table.skills tbody tr td:nth-child(n+2){
+    border-left: 2px solid hsl(0, 0%, 40%);
+}
+
+table.skills tbody tr td{
+    padding: 10px 15px;
+}
 
 
 
