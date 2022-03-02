@@ -20,11 +20,9 @@ $router = new AltoRouter();
             $router->map('GET|POST', '/panel/setting', 'panel/setting', 'Setting Profile');
 
         // Routes Skills
-            $router->map('GET|POST', '/panel/skills/[a:category]', 'panel/skills', 'Skills Block');
+            $router->map('GET|POST', '/panel/skills/[a:category]', 'panel/skills', 'Skills Category');
             
-            $router->map('GET|POST', '/panel/skills/block/[i:id]', 'panel/skills', 'Skills Block with ID');
-            $router->map('GET|POST', '/panel/skills/knowledge/[i:id]', 'panel/skills', 'Skills Knowledge with ID');
-            $router->map('GET|POST', '/panel/skills/indicator/[i:id]', 'panel/skills', 'Skills Indicator with ID');
+            $router->map('GET|POST', '/panel/skills/[a:category]/[i:id]', 'panel/skills', 'Skills Category with ID');
 
 
 // Array to create variable for each routes : $match['target'] = $routerName['id']
@@ -85,7 +83,7 @@ if (is_array($match)) {
 
         if( isset($_POST)){
             if($match['target'] === 'panel/skills'){
-
+                
             }
         }
     }
