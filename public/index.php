@@ -35,6 +35,7 @@ $routerName = [
     
     // Routes user connected
         // Routes classique
+            ['id' => 'logout',                 'title' => 'Déconnexion',                'divId' => 'Logout',              'connected' => false],
             ['id' => 'panel/first',            'title' => 'Première connexion',         'divId' => 'First',              'connected' => true,            'first' => true],
             ['id' => 'panel/setting',          'title' => 'Paramètre',                  'divId' => 'Settings',           'connected' => true,            'first' => false],
         
@@ -47,14 +48,28 @@ $routerName = [
 $match = $router->match();
 
 if (is_array($match)) {
-    if (isset($_POST)){
-        // Requet POST in Login page
-        if ($match['target'] === 'login'){
-            if(isset($_POST['email'], $_POST['password'])){
-                if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-                    
-                } else {
-                    $message = 'Votre email à un format invalide.';
+    if($_SESSION['role'] === 'visitor'){
+        if($match['target'] !== 'index' && $match['target'] !== 'login'){
+            Header('Location: ' . HTML_ROOT . '/');
+        }
+
+
+
+        if (isset($_POST)){
+            // Requet POST in Login page
+            if ($match['target'] === 'login'){
+                if(isset($_POST['email'], $_POST['password'])){
+                    if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                        $_SESSION['role'] = 'admin';
+                        $_SESSION['user-name'] = 'Bradley BARBIER';
+                        $_SESSION['user-mail'] = 'bradley.barbier@outlook.fr';
+                        $_SESSION['user-classe'] = 'BTS SIO2';
+                        $_SESSION['user-specialite'] = 'SLAM';
+
+                        Header('Location: ' . HTML_ROOT . '/panel/setting');
+                    } else {
+                        $message = 'Votre email à un format invalide.';
+                    }
                 }
             }
         }
@@ -63,11 +78,27 @@ if (is_array($match)) {
 
 
 
+    } else{
+        if($match['target'] === 'index' || $match['target'] === 'login'){
+            Header('Location: ' . HTML_ROOT . '/panel/setting');
+        }
 
+        if( isset($_POST)){
+            if($match['target'] === 'panel/skills'){
 
-
-
+            }
+        }
     }
+
+
+
+    if($match['target'] === 'logout' && $_SESSION['role'] != 'visitor'){
+        $_SESSION['role'] = 'visitor';
+        Header('Location: '. HTML_ROOT . '/');
+    }
+    
+
+
 
 
     createHeader($routerName, $match['target']);

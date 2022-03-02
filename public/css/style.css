@@ -80,6 +80,8 @@ navbar{
     display: flex;
     flex-direction: column;
 
+    overflow-y: auto;
+    
     position: fixed;
     height: 100%;
     width: 300px;
@@ -385,10 +387,6 @@ table.skills tbody tr td{
 
 .btn-white:hover{
     transform: scale(105%);
-}
-
-.btn-white:focus{
-    border-color: red;
 }
 
 .btn-white:active{

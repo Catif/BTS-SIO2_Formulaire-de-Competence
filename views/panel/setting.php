@@ -1,9 +1,4 @@
 <?php
-$_SESSION['role'] = 'admin';
-$_SESSION['user-name'] = 'Bradley BARBIER';
-$_SESSION['user-mail'] = 'bradley.barbier@outlook.fr';
-$_SESSION['user-classe'] = 'BTS SIO2';
-$_SESSION['user-specialite'] = 'SLAM';
 
 ?>
 
