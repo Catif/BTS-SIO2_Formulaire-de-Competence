@@ -1,2 +1,7 @@
+# Environnement de Travail
 .env
 vendor/
+
+# WinDesign
+*.mcd.bak
+*.mlr.bak
