@@ -267,6 +267,14 @@ table.skills thead tr{
     border-bottom: 2px solid hsl(0, 0%, 40%);
 }
 
+table.skills thead tr th:nth-child(n+2){
+    border-left: 2px solid hsl(0, 0%, 40%);
+}
+
+table.skills thead tr th{
+    padding: 5px 0px;
+}
+
 table.skills tbody tr:nth-child(odd){
     background-color: hsl(0, 0%, 80%);
 }
