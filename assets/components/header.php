@@ -1,12 +1,3 @@
-<?php
-if (!isset($map) && !isset($map['connected'])){
-    $connected = false;
-}  else {
-    $connected = $map['connected'];
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,11 +11,11 @@ if (!isset($map) && !isset($map['connected'])){
 <body>
 
 <?php 
-    if( $connected === true && $_SESSION['role'] != 'visitor'){
+    if($_SESSION['role'] != 'visitor'){
         require PHP_ROOT . '/assets/components/navbar.php';
     }
 ?>
 
 
 
-<div id='<?= $map['divId'] ?>' class="container<?= ($map['connected'] === true && $_SESSION['role'] != 'visitor') ? ' panel' : '' ?>">
+<div id='<?= $map['divId'] ?>' class="container<?= ($_SESSION['role'] != 'visitor') ? ' panel' : '' ?>">

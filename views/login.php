@@ -22,7 +22,7 @@ if (!isset($message)){
 </p>
 
 <form id="Connexion" action="" method="POST">
-    <input name="email" type="email" placeholder="Email professionnel" required>
+    <input name="email" type="email" placeholder="Email professionnel" <?= isset($_POST['email']) ? 'value="' . $_POST['email'] . '"' : '' ?> required>
     <input type="password" name="password" placeholder="Mot de passe" required>
 
     <button type="submit" class="btn-white">Se connecter</button>

@@ -19,23 +19,23 @@ define("PHP_ROOT", __DIR__);
 require PHP_ROOT . '/vendor/autoload.php';
 
 
-require_once PHP_ROOT . "/assets/class/database.php";
+require PHP_ROOT . "/assets/class/database.php";
 
 // Initialisation de la base de donnée
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
-// $db_host = $_ENV['db_host'];
-// $db_name = $_ENV['db_name'];
-// $db_user = $_ENV['db_user'];
-// $db_pswd = $_ENV['db_pswd'];
+$db_host = $_ENV['db_host'];
+$db_name = $_ENV['db_name'];
+$db_user = $_ENV['db_user'];
+$db_pswd = $_ENV['db_pswd'];
 
-// $db_parameter = [
-//     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",
-//     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-//     PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC
-// ];
+$db_parameter = [
+    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC
+];
 
-// $db = new Database($db_host, $db_name, $db_user, $db_pswd, $db_parameter);
+$db = new Database($db_host, $db_name, $db_user, $db_pswd, $db_parameter);
 
 
 
