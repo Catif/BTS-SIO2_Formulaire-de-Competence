@@ -54,7 +54,7 @@ if (is_array($match)) {
 
 
 
-        if (isset($_POST)){
+        if (!empty($_POST)){
             // Requet POST in Login page
             if ($match['target'] === 'login'){
                 if(isset($_POST['email'], $_POST['password'])){
@@ -64,7 +64,7 @@ if (is_array($match)) {
                         $result = $req->fetch();
                         
                         if(is_array($result) && password_verify($_POST['password'],$result['Mot-de-Passe_Etud'])){
-                            $_SESSION['role'] = 'etudiant';
+                            $_SESSION['role'] = 'student';
                             $_SESSION['user-name'] = ucfirst(strtolower($result['Prenom_Etud'])) . ' ' . strtoupper($result['Nom_Etud']);
                             $_SESSION['user-id'] = $result['Identifiant_Etud'];
 
@@ -88,22 +88,17 @@ if (is_array($match)) {
         if($match['target'] === 'index' || $match['target'] === 'login'){
             Header('Location: ' . HTML_ROOT . '/panel/setting');
             die();
+        } elseif ($match['target'] === 'logout'){
+            session_destroy();
+            Header('Location: '. HTML_ROOT . '/');
+            die();
         }
 
-        if(isset($_POST)){
-            if($match['target'] === 'panel/skills'){
-                $req = $db->query('SELECT * ');
-            }
+        if(!empty($_POST)){
+
         }
     }
 
-
-
-    if($match['target'] === 'logout' && $_SESSION['role'] != 'visitor'){
-        $_SESSION['role'] = 'visitor';
-        Header('Location: '. HTML_ROOT . '/');
-        die();
-    }
     
 
 

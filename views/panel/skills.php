@@ -1,36 +1,73 @@
-<h1 class="title"><?= $match['params']['category'] ?><?= isset($match['params']['id']) ? ' n°' . $match['params']['id'] : '' ?></h1>
+<?php
 
-<p class="text-center">
-    <?php var_dump($match); ?>
-</p>
+
+  switch($match['params']['category']){
+    case 'block':
+      $tbl = '`item competences`';
+      $title = 'blocs';
+      break;
+    case 'knowledge':
+      $tbl = '`savoir`';
+      $title = 'savoir';
+      $construct = true;
+      break;
+    case 'indicator':
+      $tbl = '`indicateur`';
+      $title = 'indicateur';
+      $construct = true;
+      break;
+    default:
+      $tbl = '';
+  }
+
+  if($tbl === ''){
+    header('Location: ' . HTML_ROOT . '/404');
+    die();
+  }
+  if(!isset($construct)){
+    if(isset($match['params']['id'])){
+      $sql = "SELECT N_ITEM.Acquerir";
+      $req = $db->query($sql);
+      $skills = $req->fetchAll();
+    } else{
+      $req = $db->query("SELECT * FROM $tbl");
+      $skills = $req->fetchAll();
+    }
+  }
+?>
+
+
+
+<h1 class="title">Compétence : <?= ucfirst(strtolower($title)) ?><?= isset($match['params']['id']) ? ' n°' . $match['params']['id'] : '' ?></h1>
 
 <br><br>
 
-<table class="skills">
-  <thead>
-    <tr>
-      <th>header1</th>
-      <th>header2</th>
-      <th>header3</th>
-    </tr>
+<?php if(!isset($construct)): ?>
+  <table class="skills">
+    <thead>
+      <tr>
+        <th>Identifiant</th>
+        <th>Libelé</th>
+        <!-- <th>Mise en Œuvre</th>
+        <th>En cours d'Acquisition</th>
+        <th>Acquise</th> -->
+      </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>text1.1</td>
-        <td>text1.2</td>
-        <td>text1.3</td>
-      </tr>
-      <tr>
-        <td>text2.1</td>
-        <td>text2.2</td>
-        <td>text2.3</td>
-      </tr>
-      <tr>
-        <td>text3.1</td>
-        <td>text3.2</td>
-        <td>text3.3</td>
-      </tr>
-      <tr>
-      </tr>
-  </tbody>
-</table>
+      <?php foreach($skills as $skill): ?>
+        <tr>
+          <td class="N_Item"><?= $skill['N_Item'] ?></td>
+          <td class="Libel_Item"><?= $skill['Libel_Item'] ?></td>
+          <!-- <td><?= $skill['N_Item'] ?></td>
+          <td><?= $skill['N_Item'] ?></td>
+          <td><?= $skill['N_Item'] ?></td> -->
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+<?php else: ?>
+
+  <p class="text-center">Cette partie n'est pas encore disponible.</p>
+
+<?php endif; ?>
+
