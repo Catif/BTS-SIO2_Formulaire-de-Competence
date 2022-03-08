@@ -5,6 +5,8 @@ $result = $req->fetch();
 
 ?>
 
+<?php createAlert($alert) ?>
+
 <h1 class="title">Paramètre du compte</h1>
 
 <form action="<?= HTML_ROOT ?>/panel/setting" method="POST">
@@ -22,7 +24,7 @@ $result = $req->fetch();
             <input type="password" name="old_password" placeholder="Ancien mot de passe" required>
             <input type="password" name="new_password" placeholder="Nouveau mot de passe" required>
             <input type="password" name="new-verif_password" placeholder="Vérification nouveau mot de passe" required>
-            <input type="submit" class="btn-white" value="Modifier (Non fonctionnel)">
+            <input type="submit" class="btn-white" value="Modifier">
         </div>
     </div>
 </form>

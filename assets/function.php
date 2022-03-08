@@ -11,10 +11,18 @@ function createHeader(array $maps, string $target) {
     }
 }
 
+function createAlert($alert){
+    if($alert != null && is_array($alert)){
+        echo('<div class="alerte ' . $alert[0] . '">' . $alert[1] . '</div>');
+    }
+}
 
 
 
 
+
+
+// DEBUG FUNCTION
 function debug($value){
     echo('<pre>');
     var_dump($value);

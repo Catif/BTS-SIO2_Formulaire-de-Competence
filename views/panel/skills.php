@@ -67,9 +67,9 @@
         <tr>
           <td class="N_Item"><?= $skill['N_Item'] ?></td>
           <td class="Libel_Item"><?= $skill['Libel_Item'] ?></td>
-          <!-- <td><?= $skill['N_Item'] ?></td>
-          <td><?= $skill['N_Item'] ?></td>
-          <td><?= $skill['N_Item'] ?></td> -->
+          <!-- <td><?= 'En construction' ?></td>
+          <td><?= 'En construction' ?></td>
+          <td><?= 'En construction' ?></td> -->
         </tr>
       <?php endforeach; ?>
     </tbody>

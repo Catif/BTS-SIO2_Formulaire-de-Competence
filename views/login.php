@@ -1,18 +1,4 @@
-<?php
-if (!isset($message)){
-    $message = null;
-}
-
-
-?>
-
-<?php if($message != null): ?>
-    <div class="alerte">
-        <?= $message ?>
-    </div>
-<?php endif; ?>
-
-
+<?php createAlert($alert) ?>
 
 <h1 class="title">Page de connexion</h1>
 
