@@ -14,9 +14,13 @@ if( session_status() == PHP_SESSION_NONE ){
 define("HTML_ROOT", "http://localhost:8000");
 define("PHP_ROOT", __DIR__);
 
-
 // autoload
 require PHP_ROOT . '/vendor/autoload.php';
+
+// Start AltoRouter
+$router = new AltoRouter();
+$router->setBasePath('');
+
 
 
 require PHP_ROOT . "/assets/class/database.php";
@@ -40,4 +44,5 @@ $db = new Database($db_host, $db_name, $db_user, $db_pswd, $db_parameter);
 
 
 // Chargement des fichiers de l'application
-require_once  PHP_ROOT . "/assets/function.php";
+require PHP_ROOT . "/assets/function.php";
+require PHP_ROOT . "/routes/route.php";
