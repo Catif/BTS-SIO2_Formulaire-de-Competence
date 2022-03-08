@@ -18,7 +18,7 @@ if (!isset($message)){
 
 <p class="text-center">
     Pour vous connecter, rien de plus simple !<br>
-    Utilisé votre <u>email professionel</u> et si c'est votre première connexion, utilisé comme mot de passe <u>sio</u>.
+    Utilisez votre <u>email professionel</u> et si c'est votre première connexion, utilisez comme mot de passe <u>sio</u>.
 </p>
 
 <form id="Connexion" action="" method="POST">
