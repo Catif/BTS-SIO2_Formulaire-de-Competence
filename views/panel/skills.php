@@ -1,9 +1,8 @@
 <?php
-
-
   switch($match['params']['category']){
     case 'block':
       $tbl = '`item competences`';
+      $conditionId = '`Ensemble_Item`';
       $title = 'blocs';
       break;
     case 'knowledge':
@@ -20,15 +19,26 @@
       $tbl = '';
   }
 
+  
+
   if($tbl === ''){
     header('Location: ' . HTML_ROOT . '/404');
     die();
   }
   if(!isset($construct)){
+    $req = $db->query('SELECT Id_Nom_Bloc FROM blocs');
+    $arrayBlocs = $req->fetchAll();
+    
     if(isset($match['params']['id'])){
-      $sql = "SELECT N_ITEM.Acquerir";
-      $req = $db->query($sql);
-      $skills = $req->fetchAll();
+      if(intval($match['params']['id'])){
+        $id = intval($match['params']['id']) - 1;
+        $sql = "SELECT * FROM `item competences` INNER 
+        JOIN `ensemble de competences` ON `item competences`.`Ensemble_Item` = `ensemble de competences`.`Id_Ensemble-Competence` 
+        WHERE `ensemble de competences`.`Id_Bloc_Appartenance` = '{$arrayBlocs[$id][0]}'";
+        echo($sql);
+        $req = $db->query($sql);
+        $skills = $req->fetchAll();
+      }
     } else{
       $req = $db->query("SELECT * FROM $tbl");
       $skills = $req->fetchAll();

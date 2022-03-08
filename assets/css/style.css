@@ -275,7 +275,7 @@ table.skills thead tr th:nth-child(n+2){
 }
 
 table.skills thead tr th{
-    padding: 5px 0px;
+    padding: 5px 20px;
 }
 
 table.skills tbody tr:nth-child(odd){
