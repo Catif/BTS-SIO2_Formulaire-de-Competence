@@ -1,4 +1,12 @@
 <?php
+// Initialisation de la base de donnée
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+$db_host = $_ENV['db_host'];
+$db_name = $_ENV['db_name'];
+$db_user = $_ENV['db_user'];
+$db_pswd = $_ENV['db_pswd'];
+
 // Chargement de la session
 if( session_status() == PHP_SESSION_NONE ){
     session_start();
@@ -8,10 +16,7 @@ if( session_status() == PHP_SESSION_NONE ){
 }
 
 
-// Définir le chemin de l'application
-// exemple : http://localhost:8000
-// Important : Ne pas finir le lien par un '/'
-define("HTML_ROOT", "http://localhost:8000");
+define("HTML_ROOT", $_ENV['html_root']);
 define("PHP_ROOT", __DIR__);
 
 // autoload
@@ -19,19 +24,11 @@ require PHP_ROOT . '/vendor/autoload.php';
 
 // Start AltoRouter
 $router = new AltoRouter();
-$router->setBasePath('');
+$router->setBasePath($_ENV['router_basePath']);
 
 
 
 require PHP_ROOT . "/assets/class/database.php";
-
-// Initialisation de la base de donnée
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-$db_host = $_ENV['db_host'];
-$db_name = $_ENV['db_name'];
-$db_user = $_ENV['db_user'];
-$db_pswd = $_ENV['db_pswd'];
 
 $db_parameter = [
     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES UTF8",

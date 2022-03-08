@@ -1,6 +1,6 @@
 <?php
 
-$req = $db->query('SELECT * FROM Etudiant WHERE `Identifiant_Etud` = :id', [':id' => $_SESSION['user-id']]);
+$req = $db->query('SELECT * FROM etudiant WHERE `Identifiant_Etud` = :id', [':id' => $_SESSION['user-id']]);
 $result = $req->fetch();
 
 ?>
