@@ -35,7 +35,6 @@
         $sql = "SELECT * FROM `item competences` INNER 
         JOIN `ensemble de competences` ON `item competences`.`Ensemble_Item` = `ensemble de competences`.`Id_Ensemble-Competence` 
         WHERE `ensemble de competences`.`Id_Bloc_Appartenance` = '{$arrayBlocs[$id][0]}'";
-        echo($sql);
         $req = $db->query($sql);
         $skills = $req->fetchAll();
       }
