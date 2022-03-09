@@ -49,17 +49,17 @@ if (is_array($match)) {
 
 
     } else{
-        if (isset($_SESSION['first']) && $match['target'] != 'panel/first'){
+        if ($match['target'] === 'logout'){
+            session_destroy();
+            Header('Location: '. HTML_ROOT . '/');
+            die();
+        }elseif (isset($_SESSION['first']) && $match['target'] != 'panel/first'){
             Header('Location: '. HTML_ROOT . '/panel/first');
             die();
         } elseif($match['target'] === 'index' || $match['target'] === 'login' || (!isset($_SESSION['first']) && $match['target'] === 'panel/first')){
             Header('Location: ' . HTML_ROOT . '/panel/setting');
             die();
-        } elseif ($match['target'] === 'logout'){
-            session_destroy();
-            Header('Location: '. HTML_ROOT . '/');
-            die();
-        } 
+        }
 
 
 

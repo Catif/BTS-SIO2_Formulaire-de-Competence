@@ -91,6 +91,8 @@ navbar{
     background-color: hsl(0, 0%, 7%);
 
     box-shadow: -5px 0px 10px 2px hsl(0, 0%, 100%);
+
+    z-index: 100;
 }
 
 .nav-profile{
@@ -136,6 +138,60 @@ navbar{
     margin-left: 40px;
     font-size: 0.9em;
 }
+
+button.nav-media-button{
+    display: none;
+
+    position: absolute;
+    top:0;
+    right:0;
+
+    margin-right: 10px;
+    margin-top: 10px;
+
+    width: 60px;
+    height: 50px;
+    border-radius: 10px;
+
+    font-size: 50px;
+    color: hsl(0, 0%, 90%);
+    background-color: hsl(0, 0%, 10%);
+    border: 0;
+    cursor: pointer;
+}
+@media only screen and (max-width: 1050px) {
+    navbar{
+        display: none;
+    }
+    button.nav-media-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container.panel{
+        max-width: 100% !important;
+        margin-left: 0px !important;
+    }
+
+    navbar.active{
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    
+        overflow-y: auto;
+        
+        position: fixed;
+        height: 100%;
+        width: 300px;
+        padding: 10px 20px;
+    
+        font-size: 1.2em;
+        background-color: hsl(0, 0%, 7%);
+    
+        box-shadow: -5px 0px 10px 2px hsl(0, 0%, 100%);
+    }
+}
+
 
 
 
@@ -349,7 +405,7 @@ table.skills tbody tr td.N_Item{
 
 .container{
     margin: auto;
-    width: 80%;
+    width: 100%;
     min-width: 250px;
 
     display: flex;

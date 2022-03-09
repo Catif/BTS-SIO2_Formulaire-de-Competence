@@ -54,3 +54,7 @@
         </div>
     </div>
 </navbar>
+
+<button class="nav-media-button">
+    <span class="iconify" data-icon="eva:menu-fill"></span>
+</button>
