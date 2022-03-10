@@ -168,6 +168,9 @@ button.nav-media-button{
         justify-content: center;
         align-items: center;
     }
+    button.nav-media-button.disabled{
+        display:none;
+    }
     .container.panel{
         max-width: 100% !important;
         margin-left: 0px !important;
@@ -189,6 +192,20 @@ button.nav-media-button{
         background-color: hsl(0, 0%, 7%);
     
         box-shadow: -5px 0px 10px 2px hsl(0, 0%, 100%);
+    }
+
+    .nav-shadow{
+        display: none;
+
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+
+        background-color: hsla(0, 0%, 0%, .6);
+    }
+    .nav-shadow.active{
+        display: block;
     }
 }
 
@@ -245,8 +262,7 @@ form#Connexion input[type="password"]{
 =============================== */
 .card{
     background-color: hsl(0, 0%, 10%);
-    width: 80%;
-    padding: 20px;
+    padding: 15px;
     margin-top: 10px;
 
     display: flex;
@@ -294,13 +310,31 @@ form#Connexion input[type="password"]{
     width: 90%;
 }
 
+@media only screen and (min-width: 1300px) {
+    .card{
+        width: 80%;
+    }
+}
 
+@media only screen and (min-width: 850px) and (max-width: 1299px) {
+    .card{
+        width: 90%;
+    }
+}
 
-
-
-
-
-
+@media only screen and (max-width: 850px) {
+    .card{
+        width: 80%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .card .column, .card .column:last-child{
+        width: 100%;
+        align-items: center;
+    }
+}
 
 
 
