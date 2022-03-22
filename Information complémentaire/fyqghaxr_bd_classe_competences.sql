@@ -853,7 +853,7 @@ INSERT INTO `etudiant` (`Identifiant_Etud`, `Nom_Etud`, `Prenom_Etud`, `Option-B
 (1, 'Sordetti', 'Luca', 'SLAM', '2002-08-03 00:00:00', 'luca-sordetti@outlook.com', '$2y$12$wGGUsfvqlTbg5PdRjCfeGekv5HDQ1PB0KhrgO7uXaSvyEUYUYopQm', 1),
 (2, 'Naourbiev', 'Denis', 'SISR', '2002-03-16 00:00:00', 'denis.naourbiev@outlook.com', '$2y$12$wGGUsfvqlTbg5PdRjCfeGekv5HDQ1PB0KhrgO7uXaSvyEUYUYopQm', 1),
 (5, 'HUBE', 'Wallace', 'SISR', '2001-02-13 00:00:00', 'wallace.hube@outlook.fr', '$2y$12$wGGUsfvqlTbg5PdRjCfeGekv5HDQ1PB0KhrgO7uXaSvyEUYUYopQm', 1),
-(6, 'BARBIER', 'Bradley', 'SLAM', '2002-06-05 00:00:00', 'bradley.barbier@outlook.fr', '$2y$12$KikylMTPoj7qvq0wejOkju2daE7DkP07xvvZ..tkunS.6kyeGDcdm', 1),
+(6, 'BARBIER', 'Bradley', 'SLAM', '2002-06-05 00:00:00', 'bradley.barbier@outlook.fr', '$2y$12$wGGUsfvqlTbg5PdRjCfeGekv5HDQ1PB0KhrgO7uXaSvyEUYUYopQm', 1),
 (7, 'CLEMENT DELS', 'Teddy', 'SLAM', '2002-11-26 00:00:00', 'teddy.clement_dels@outlook.fr', '$2y$12$wGGUsfvqlTbg5PdRjCfeGekv5HDQ1PB0KhrgO7uXaSvyEUYUYopQm', 1),
 (8, 'COLLOT', 'Enzo', 'SISR', '2002-03-17 00:00:00', 'collot.enzo@outlook.fr', '$2y$12$wGGUsfvqlTbg5PdRjCfeGekv5HDQ1PB0KhrgO7uXaSvyEUYUYopQm', 1),
 (9, 'Courtney', 'Aloïs', 'SISR', '1999-02-23 00:00:00', 'alois.courtney@outlook.fr', '$2y$12$wGGUsfvqlTbg5PdRjCfeGekv5HDQ1PB0KhrgO7uXaSvyEUYUYopQm', 1),
