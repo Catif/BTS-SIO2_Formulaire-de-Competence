@@ -142,7 +142,7 @@ navbar{
 button.nav-media-button{
     display: none;
 
-    position: absolute;
+    position: fixed;
     top:0;
     right:0;
 
@@ -197,7 +197,7 @@ button.nav-media-button{
     .nav-shadow{
         display: none;
 
-        position: absolute;
+        position: fixed;
         width: 100vw;
         height: 100vh;
         z-index: 1;
