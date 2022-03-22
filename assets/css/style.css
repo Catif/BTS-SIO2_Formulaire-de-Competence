@@ -237,7 +237,7 @@ button.nav-media-button{
 /* ===============================
         Page de Connexion
 =============================== */
-form#Connexion input[type="password"]{
+form#Connexion input[type="password"], form#Forget-Password input[name="new-verif_password"]{
     margin-top: 10px;
 }
 
@@ -427,7 +427,7 @@ table.skills tbody tr td.N_Item{
 /* ===============================
         Classes commune
 =============================== */
-#Home.container, #Login.container{
+#Home.container, #Login.container, #Forget.container{
     min-height: 80%;
 }
 
@@ -461,41 +461,55 @@ table.skills tbody tr td.N_Item{
     text-align: center;
 }
 
-
-
-.btn-white{
+.btn{
     position: relative;
     bottom: 0px;
 
     cursor: pointer;
 
     margin-top: 10px;
-    background-color: hsl(0, 0%, 90%);
     padding: 10px 30px;
-    width: 150px;
+    width: 300px;
 
     text-align: center;
 
     text-decoration: none;
-    color: hsl(0, 0%, 5%);
     font-weight: bolder;
     font-size: 1.2em;
 
-    border: 4px solid hsl(0, 0%, 10%);
     border-radius: 10px;
 
     transition: all 0.1s;
 }
 
-.btn-white:hover{
+.btn:hover{
     transform: scale(105%);
 }
 
-.btn-white:active{
+.btn-primary{
+    background-color: hsl(0, 0%, 90%);
+    color: hsl(0, 0%, 5%);
+    border: 4px solid hsl(0, 0%, 10%);
+}
+
+.btn-primary:active{
     background-color: hsl(0, 0%, 5%);
     color:hsl(0, 0%, 90%);
     border: hsl(0, 0%, 90%);
 }
+
+.btn-secondary{
+    background-color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 90%);
+    border: 4px solid hsl(0, 0%, 7%);
+}
+
+.btn-secondary:active{
+    background-color: hsl(0, 0%, 90%);
+    color: hsl(0, 0%, 20%);
+    border: hsl(0, 0%, 90%);
+}
+
 
 .alerte{
     padding: 10px 20px;

@@ -11,5 +11,7 @@
     <input name="email" type="email" placeholder="Email professionnel" <?= isset($_POST['email']) ? 'value="' . $_POST['email'] . '"' : '' ?> required>
     <input type="password" name="password" placeholder="Mot de passe" required>
 
-    <button type="submit" class="btn-white">Se connecter</button>
+    <button type="submit" class="btn btn-primary">Se connecter</button>
 </form>
+
+<a href="<?= HTML_ROOT ?>/forget-password" class="btn btn-secondary">Mot de passe oublié</a>

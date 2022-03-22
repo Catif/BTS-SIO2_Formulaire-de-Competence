@@ -5,4 +5,4 @@
     <u>Si vous possédez un compte</u>, vous pouvez vous connecter avec le bouton ci-dessous.<br>
 </p>
 
-<a class="btn-white" href="<?= HTML_ROOT ?>/login">Se connecter</a>
+<a class="btn btn-primary" href="<?= HTML_ROOT ?>/login">Se connecter</a>

@@ -4,6 +4,7 @@
     // Routes visitor
         $router->map('GET', '/', 'index', 'HomePage');
         $router->map('GET|POST', '/login', 'login', 'Login');
+        $router->map('GET|POST', '/forget-password', 'forget-password', 'Forget Password');
 
     // Routes user connected
         // Routes classique
@@ -22,6 +23,7 @@ $routerName = [
     // Routes visitor 
         ['id' => 'index',                  'title' => 'Accueil',                    'divId' => 'Home'],
         ['id' => 'login',                  'title' => 'Page de connexion',          'divId' => 'Login'],
+        ['id' => 'forget-password',                  'title' => 'Mot de passe oublié',          'divId' => 'Forget'],
     
     // Routes user connected
         // Routes classique

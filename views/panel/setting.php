@@ -24,7 +24,7 @@ $result = $req->fetch();
             <input type="password" name="old_password" placeholder="Ancien mot de passe" required>
             <input type="password" name="new_password" placeholder="Nouveau mot de passe" required>
             <input type="password" name="new-verif_password" placeholder="Vérification nouveau mot de passe" required>
-            <input type="submit" class="btn-white" value="Modifier">
+            <input type="submit" class="btn btn-primary" value="Modifier">
         </div>
     </div>
 </form>
