@@ -32,7 +32,7 @@ if (is_array($match)) {
 
 
 
-    createHeader($routerName, $match['target']);
+    createHeader($routerName, $match['target'], $db);
 
     $alert = isset($alert) ? $alert : null;
 

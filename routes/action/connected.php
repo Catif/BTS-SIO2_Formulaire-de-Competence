@@ -19,7 +19,7 @@ if(!empty($_POST)){
                     $alert = ['error', 'Le nouveau mot de passe est trop petit. (Inférieur à 6 caractères)'];
                 } else{
                     $newPassword = password_hash($_POST['new_password'], PASSWORD_DEFAULT, ['cost' => 12]);
-                    $db->query("UPDATE etudiant SET `Mot-de-Passe_Etud` = '{$newPassword}', `Premiere-Connexion_Etud` = 0 WHERE Identifiant_Etud = $idUser");
+                    $db->query("UPDATE etudiant SET `MOT_DE_PASSE_ETUD` = '{$newPassword}', `Premiere-Connexion_Etud` = 0 WHERE IDENTIFIANT_ETUD = $idUser");
                     unset($_SESSION['first']);
                     Header('Location: ' . HTML_ROOT . '/panel/setting?first=success');
                     die();
@@ -35,10 +35,10 @@ if(!empty($_POST)){
     if ($match['target'] === 'panel/setting'){
         if(isset($_POST['old_password'], $_POST['new_password'], $_POST['new-verif_password'])){
             $idUser = $_SESSION['user-id'];
-            $req = $db->query("SELECT `Mot-de-Passe_Etud` FROM etudiant WHERE `Identifiant_Etud` = $idUser");
+            $req = $db->query("SELECT `MOT_DE_PASSE_ETUD` FROM etudiant WHERE `IDENTIFIANT_ETUD` = $idUser");
             $result = $req->fetch();
             
-            if(is_array($result) && password_verify($_POST['old_password'],$result['Mot-de-Passe_Etud'])){
+            if(is_array($result) && password_verify($_POST['old_password'],$result['MOT_DE_PASSE_ETUD'])){
                 if($_POST['new_password'] === $_POST['new-verif_password']){
                     if(strlen($_POST['new_password']) < 6){
                         $alert = ['error', 'Le nouveau mot de passe est trop petit. (Inférieur à 6 caractères)'];
@@ -47,7 +47,7 @@ if(!empty($_POST)){
                             $alert = ['error', 'Le nouveau mot de passe doit être différent de l\'ancien mot de passe.'];
                         } else{
                             $newPassword = password_hash($_POST['new_password'], PASSWORD_DEFAULT, ['cost' => 12]);
-                            $db->query("UPDATE etudiant SET `Mot-de-Passe_Etud` = '{$newPassword}' WHERE Identifiant_Etud = $idUser");
+                            $db->query("UPDATE etudiant SET `MOT_DE_PASSE_ETUD` = '{$newPassword}' WHERE IDENTIFIANT_ETUD = $idUser");
                             $alert = ['success', 'Le mot de passe à bien été modifié'];
                         }
                     }

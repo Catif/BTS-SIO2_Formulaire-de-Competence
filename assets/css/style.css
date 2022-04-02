@@ -1,4 +1,4 @@
-* {margin:0;padding:0;box-sizing: content-box;}
+* {margin:0;padding:0;box-sizing: border-box;}
 
 html{
     height: 100vh;
@@ -109,26 +109,28 @@ navbar{
     color: hsl(0, 0%, 90%);
 }
 
-
-.nav-skills{
+.nav-bloc{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
     margin: auto 0;
 }
 
-.nav-skills-items{
+.nav-items.gap{
     display: flex;
     flex-direction: column;
     gap:50px;
 }
 
 
-.nav-skills-item a{
+.nav-items a, .nav-item a{
     color: hsl(0, 0%, 90%);
     text-decoration: none;
     margin-left: 20px;
     font-size: 0.8em;
 }
 
-.nav-skills-list{
+.nav-list{
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -347,6 +349,57 @@ form#Connexion input[type="password"], form#Forget-Password input[name="new-veri
 
 
 
+
+
+
+
+
+
+
+
+/* ===============================
+        Pages Projets
+=============================== */
+
+        /* ===============================
+                Page "Ajout d'un projet"
+        =============================== */
+        .list-button{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ===============================
         Page des compétences
 =============================== */
@@ -370,7 +423,7 @@ table.skills thead tr th:nth-child(n+2){
 }
 
 table.skills thead tr th{
-    padding: 5px 20px;
+    padding: 5px 10px;
 }
 
 table.skills tbody tr:nth-child(odd){
@@ -389,8 +442,13 @@ table.skills tbody tr td{
     padding: 10px 15px;
 }
 
-table.skills tbody tr td.N_Item{
+table.skills tbody tr td.checkbox{
     text-align: center;
+}
+
+table.skills tbody tr td input[type='checkbox']{
+    width: 50px;
+    min-width: 0px;
 }
 
 
@@ -456,6 +514,9 @@ table.skills tbody tr td.N_Item{
     text-align:left;
 }
 
+.mt-20{
+    margin-top: 20px;
+}
 
 .text-center{
     text-align: center;
@@ -529,4 +590,47 @@ table.skills tbody tr td.N_Item{
 }
 .alerte.success{
     background-color: hsl(127, 100%, 25%);
+}
+
+
+#modal-shadow{
+    display:none;
+    background-color: hsla(0, 0%, 0%, .7);
+
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 200;
+}
+#modal-shadow.active{
+    display: block;
+}
+
+.modal{
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%,0);
+
+    width: 80vw;
+    padding: 10px 20px;
+    border-radius: 10px;
+
+    background-color: hsl(0, 0%, 15%);
+
+    z-index: 201;
+}
+.modal.active{
+    display: block;
+}
+
+.modal h2{
+    margin-bottom: 10px;
+}
+
+.modal .skills{
+    width: 100%;
 }

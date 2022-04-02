@@ -1,40 +1,43 @@
 <?php
+  $req = $db->query('SELECT Id_Nom_Bloc FROM blocs'); 
+  $arrayBlocs = $req->fetchAll();
+  $id = isset($match['params']['id']) ? intval($match['params']['id']) : '';
+
   switch($match['params']['category']){
     case 'block':
-      $tbl = '`item competences`';
-      $conditionId = '`Ensemble_Item`';
-      $title = 'blocs';
+      $tbl = '`item_competence`';
+      $conditionPrefix = 'B';
+      $N_Item = 'N_ITEM_COMPETENCE';
+      $title = 'Compétence';
       break;
     case 'knowledge':
-      $tbl = '`savoir`';
-      $title = 'savoir';
-      $construct = true;
+      $tbl = '`item_savoir`';
+      $N_Item = 'N_ITEM_SAVOIR';
+      $conditionPrefix = 'S';
+      $title = 'Savoir';
       break;
     case 'indicator':
-      $tbl = '`indicateur`';
-      $title = 'indicateur';
-      $construct = true;
+      $tbl = '`item_indicateur`';
+      $N_Item = 'N_ITEM_INDICATEUR';
+      $conditionPrefix = 'P';
+      $title = 'Indicateur';
       break;
     default:
       $tbl = '';
   }
 
   
+  
 
-  if($tbl === ''){
+  if($tbl === '' || (isset($match['params']['id']) && !isset($arrayBlocs[$id-1]))){
     header('Location: ' . HTML_ROOT . '/404');
     die();
   }
   if(!isset($construct)){
-    $req = $db->query('SELECT Id_Nom_Bloc FROM blocs');
-    $arrayBlocs = $req->fetchAll();
-    
     if(isset($match['params']['id'])){
       if(intval($match['params']['id'])){
-        $id = intval($match['params']['id']) - 1;
-        $sql = "SELECT * FROM `item competences` INNER 
-        JOIN `ensemble de competences` ON `item competences`.`Ensemble_Item` = `ensemble de competences`.`Id_Ensemble-Competence` 
-        WHERE `ensemble de competences`.`Id_Bloc_Appartenance` = '{$arrayBlocs[$id][0]}'";
+        $like = $conditionPrefix . $id . '%'; // ex : B2% => B2.1.1 B2.1.2 ...
+        $sql = "SELECT * FROM $tbl WHERE $N_Item like '$like'";
         $req = $db->query($sql);
         $skills = $req->fetchAll();
       }
@@ -47,7 +50,7 @@
 
 
 
-<h1 class="title">Compétence : <?= ucfirst(strtolower($title)) ?><?= isset($match['params']['id']) ? ' n°' . $match['params']['id'] : '' ?></h1>
+<h1 class="title"><?= $title ?> : <?= isset($match['params']['id']) ? $arrayBlocs[$id - 1][0] : 'Tous les blocs' ?></h1>
 
 <br><br>
 
@@ -65,8 +68,8 @@
     <tbody>
       <?php foreach($skills as $skill): ?>
         <tr>
-          <td class="N_Item"><?= $skill['N_Item'] ?></td>
-          <td class="Libel_Item"><?= $skill['Libel_Item'] ?></td>
+          <td class="N_Item"><?= $skill[$N_Item] ?></td>
+          <td class="Libel_Item"><?= $skill['LIBEL_ITEM'] ?></td>
           <!-- <td><?= 'En construction' ?></td>
           <td><?= 'En construction' ?></td>
           <td><?= 'En construction' ?></td> -->

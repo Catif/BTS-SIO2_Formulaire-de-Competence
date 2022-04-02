@@ -25,3 +25,19 @@ navShadow.addEventListener('click', () =>{
         navShadow.classList.add('active')
     }
 })
+
+function openModal(idModal){
+    var modalShadow = document.querySelector('#modal-shadow')
+    var modal = document.querySelector('#' + idModal)
+
+    modal.classList.add('active')
+    modalShadow.classList.add('active')
+}
+
+function closeModal(){
+    var modalShadow = document.querySelector('#modal-shadow')
+    var modal = document.querySelector('.modal.active')
+    
+    modal.classList.remove('active')
+    modalShadow.classList.remove('active')
+}

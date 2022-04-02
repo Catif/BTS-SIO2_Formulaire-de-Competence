@@ -1,6 +1,6 @@
 <?php
 
-$req = $db->query('SELECT * FROM etudiant WHERE `Identifiant_Etud` = :id', [':id' => $_SESSION['user-id']]);
+$req = $db->query('SELECT * FROM etudiant WHERE `IDENTIFIANT_ETUD` = :id', [':id' => $_SESSION['user-id']]);
 $result = $req->fetch();
 
 ?>
@@ -13,10 +13,10 @@ $result = $req->fetch();
     <div class="card">
         <div class="column">
             <p><u>Information</u></p>
-            <input type="text" value="<?= ucfirst(strtolower($result['Prenom_Etud'])) . ' ' . strtoupper($result['Nom_Etud']) ?>" disabled>
-            <input type="mail" value="<?= $result['Mail-Pro_Etud'] ?>" disabled>
+            <input type="text" value="<?= ucfirst(strtolower($result['PRENOM_ETUD'])) . ' ' . strtoupper($result['PRENOM_ETUD']) ?>" disabled>
+            <input type="mail" value="<?= $result['MAIL_ETUD'] ?>" disabled>
             <input type="text" value="BTS SIO" disabled>
-            <input type="text" value="<?= $result['Option-BTS_Etud'] ?>" disabled>
+            <input type="text" value="<?= $result['OPTION_BTS_ETUD'] ?>" disabled>
         </div>
         
         <div class="column">

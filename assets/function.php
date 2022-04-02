@@ -1,6 +1,6 @@
 <?php
 
-function createHeader(array $maps, string $target) {
+function createHeader(array $maps, string $target, Database $db) {
     foreach($maps as $map){
         if($map['id'] === $target){
             $titre = $map['title'] . ' - Bradley BARBIER';

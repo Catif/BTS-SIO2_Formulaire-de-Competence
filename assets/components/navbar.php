@@ -1,3 +1,8 @@
+<?php
+    $req = $db->query('SELECT ID_NOM_BLOC FROM blocs');
+    $array_block = $req->fetchAll();
+?>
+
 <navbar>
     <div class="nav-profile">
         <u><?= $_SESSION['user-name'] ?></u>
@@ -8,47 +13,59 @@
         </div>
     </div>
 
+    <div class="nav-bloc">
+        <div id="nav-Project" class="nav-categorie">
+            <u>Projets :</u>
+    
+            <div class="nav-items">
+                <div class="nav-item">
+                    <a href="<?= HTML_ROOT ?>/panel/project/list"><span class="iconify" data-icon="ant-design:folder-open-filled"></span> Liste des projets</a>
+                </div>
 
-    <div class="nav-skills">
-        <u>Compétences :</u>
-
-        <div class="nav-skills-items">
-            <div class="nav-skills-item">
-                <a href="<?= HTML_ROOT ?>/panel/skills/block">Bloc</a>
-                
-                <div class="nav-skills-list">
-                    <a href="<?= HTML_ROOT ?>/panel/skills/block/1">Bloc 1</a>
-                    <a href="<?= HTML_ROOT ?>/panel/skills/block/2">Bloc 2</a>
-                    <a href="<?= HTML_ROOT ?>/panel/skills/block/3">Bloc 3</a>
-                    <a href="<?= HTML_ROOT ?>/panel/skills/block/4">Bloc 4</a>
+                <div class="nav-item">
+                    <a href="<?= HTML_ROOT ?>/panel/project/create"><span class="iconify" data-icon="ant-design:file-add-filled"></span> Ajouter un projet</a>
                 </div>
             </div>
-
-
-
-
-            <div class="nav-skills-item">
-                <a href="<?= HTML_ROOT ?>/panel/skills/knowledge">Savoir</a>
-                
-                <div class="nav-skills-list">
-                    <a href="<?= HTML_ROOT ?>/panel/skills/knowledge/1">Savoir 1</a>
-                    <a href="<?= HTML_ROOT ?>/panel/skills/knowledge/2">Savoir 2</a>
-                    <a href="<?= HTML_ROOT ?>/panel/skills/knowledge/3">Savoir 3</a>
-                    <a href="<?= HTML_ROOT ?>/panel/skills/knowledge/4">Savoir 4</a>
+        </div>
+    
+        <div id="nav-Skills" class="nav-categorie">
+            <u>Compétences :</u>
+    
+            <div class="nav-items gap">
+                <div class="nav-item">
+                    <a href="<?= HTML_ROOT ?>/panel/skills/block"><span class="iconify" data-icon="mdi:hand-saw"></span> Compétences</a>
+                    
+                    <div class="nav-list">
+                        <?php foreach($array_block as $k => $bloc): ?>
+                            <a href="<?= HTML_ROOT ?>/panel/skills/block/<?= $k + 1 ?>"><?= $bloc[0] ?></a>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
-            </div>
-
-
-
-
-            <div class="nav-skills-item">
-                <a href="<?= HTML_ROOT ?>/panel/skills/indicator">Indicateur</a>
-                
-                <div class="nav-skills-list">
-                    <a href="<?= HTML_ROOT ?>/panel/skills/indicator/1">Indicateur 1</a>
-                    <a href="<?= HTML_ROOT ?>/panel/skills/indicator/2">Indicateur 2</a>
-                    <a href="<?= HTML_ROOT ?>/panel/skills/indicator/3">Indicateur 3</a>
-                    <a href="<?= HTML_ROOT ?>/panel/skills/indicator/4">Indicateur 4</a>
+    
+    
+    
+    
+                <div class="nav-item">
+                    <a href="<?= HTML_ROOT ?>/panel/skills/knowledge"><span class="iconify" data-icon="bxs:book-alt"></span> Savoirs</a>
+                    
+                    <div class="nav-list">
+                        <?php foreach($array_block as $k => $bloc): ?>
+                            <a href="<?= HTML_ROOT ?>/panel/skills/knowledge/<?= $k + 1 ?>"><?= $bloc[0] ?></a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+    
+    
+    
+    
+                <div class="nav-item">
+                    <a href="<?= HTML_ROOT ?>/panel/skills/indicator"><span class="iconify" data-icon="ep:warning-filled"></span> Indicateurs</a>
+                    
+                    <div class="nav-list">
+                        <?php foreach($array_block as $k => $bloc): ?>
+                            <a href="<?= HTML_ROOT ?>/panel/skills/indicator/<?= $k + 1 ?>"><?= $bloc[0] ?></a>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
         </div>

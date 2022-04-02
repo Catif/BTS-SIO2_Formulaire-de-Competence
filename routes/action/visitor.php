@@ -4,15 +4,15 @@ if (!empty($_POST)){
     if ($match['target'] === 'login'){
         if(isset($_POST['email'], $_POST['password'])){
             if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-                $req = $db->query("SELECT * FROM etudiant WHERE `Mail-Pro_Etud` = :email", [':email' => $_POST['email']]);
+                $req = $db->query("SELECT * FROM etudiant WHERE `MAIL_ETUD` = :email", [':email' => $_POST['email']]);
 
                 $result = $req->fetch();
                 
-                if(is_array($result) && password_verify($_POST['password'],$result['Mot-de-Passe_Etud'])){
+                if(is_array($result) && password_verify($_POST['password'],$result['MOT_DE_PASSE_ETUD'])){
                     $_SESSION['role'] = 'student';
-                    $_SESSION['user-name'] = ucfirst(strtolower($result['Prenom_Etud'])) . ' ' . strtoupper($result['Nom_Etud']);
-                    $_SESSION['user-id'] = $result['Identifiant_Etud'];
-                    if($result['Premiere-Connexion_Etud'] === '1'){
+                    $_SESSION['user-name'] = ucfirst(strtolower($result['PRENOM_ETUD'])) . ' ' . strtoupper($result['NOM_ETUD']);
+                    $_SESSION['user-id'] = $result['IDENTIFIANT_ETUD'];
+                    if($result['PREMIERE-CONNEXION_ETUD'] === '1'){
                         $_SESSION['first'] = true;
                     }
 
@@ -30,7 +30,7 @@ if (!empty($_POST)){
     if ($match['target'] === 'forget-password'){
         if(isset($_POST['email'], $_POST['forget_password_step']) && $_POST['forget_password_step'] === 'send_mail'){
             if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-                $req = $db->query("SELECT Identifiant_Etud FROM etudiant WHERE `Mail-Pro_Etud` = :email", [':email' => $_POST['email']]);
+                $req = $db->query("SELECT Identifiant_Etud FROM etudiant WHERE `MAIL_ETUD` = :email", [':email' => $_POST['email']]);
 
                 $result = $req->fetch();
 
@@ -39,8 +39,8 @@ if (!empty($_POST)){
                 $forget_password_step = 'code_mail';
 
                 $alert = ['success', 'Si votre email fait partie de notre base de donnée, vous recevrez un mail d\'ici quelque seconde.'];
-                if(isset($result['Identifiant_Etud'])){
-                    $_SESSION['forget-password_ID-user'] = $result['Identifiant_Etud'];
+                if(isset($result['IDENTIFIANT_ETUD'])){
+                    $_SESSION['forget-password_ID-user'] = $result['IDENTIFIANT_ETUD'];
 
                     $comb = "ACDEFGHJKMNPQRTUVWXYZ123456789";
                     $codeGenere = str_shuffle($comb);
@@ -85,7 +85,7 @@ Voici le code pour la vérification du changement de mot de passe : {$_SESSION['
                         $alert = ['error', 'Le nouveau mot de passe est trop petit. (Inférieur à 6 caractères)'];
                     } else{
                         $newPassword = password_hash($_POST['new_password'], PASSWORD_DEFAULT, ['cost' => 12]);
-                        $db->query("UPDATE etudiant SET `Mot-de-Passe_Etud` = '{$newPassword}', `Premiere-Connexion_Etud` = 0 WHERE Identifiant_Etud = $idUser");
+                        $db->query("UPDATE etudiant SET `MOT_DE_PASSE_ETUD` = '{$newPassword}', `Premiere-Connexion_Etud` = 0 WHERE IDENTIFIANT_ETUD = $idUser");
                         unset($_SESSION['codeMail'], $_SESSION['forget-password_ID-user']);
                         Header('Location: ' . HTML_ROOT . '/login?forget=true');
                         die();
