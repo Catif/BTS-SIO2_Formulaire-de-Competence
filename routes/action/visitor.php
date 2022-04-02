@@ -30,7 +30,7 @@ if (!empty($_POST)){
     if ($match['target'] === 'forget-password'){
         if(isset($_POST['email'], $_POST['forget_password_step']) && $_POST['forget_password_step'] === 'send_mail'){
             if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-                $req = $db->query("SELECT Identifiant_Etud FROM etudiant WHERE `MAIL_ETUD` = :email", [':email' => $_POST['email']]);
+                $req = $db->query("SELECT IDENTIFIANT_ETUD FROM etudiant WHERE `MAIL_ETUD` = :email", [':email' => $_POST['email']]);
 
                 $result = $req->fetch();
 
@@ -50,7 +50,7 @@ if (!empty($_POST)){
                     $mail->addAddress($_POST['email']);
 
                     // Expéditeur
-                    $mail->setFrom('no-reply@test.fr', 'Ne pas répondre - Asci6');
+                    $mail->setFrom($_ENV['mail_forget_user'], 'Ne pas répondre - Asci6');
 
                     // Contenu
                     $mail->Subject = 'Code de vérification - Asci6';
