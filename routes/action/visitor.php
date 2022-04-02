@@ -85,7 +85,7 @@ Voici le code pour la vérification du changement de mot de passe : {$_SESSION['
                         $alert = ['error', 'Le nouveau mot de passe est trop petit. (Inférieur à 6 caractères)'];
                     } else{
                         $newPassword = password_hash($_POST['new_password'], PASSWORD_DEFAULT, ['cost' => 12]);
-                        $db->query("UPDATE etudiant SET `MOT_DE_PASSE_ETUD` = '{$newPassword}', `Premiere-Connexion_Etud` = 0 WHERE IDENTIFIANT_ETUD = $idUser");
+                        $db->query("UPDATE etudiant SET `MOT_DE_PASSE_ETUD` = '{$newPassword}', `PREMIERE_CONNEXION_ETUD` = 0 WHERE IDENTIFIANT_ETUD = $idUser");
                         unset($_SESSION['codeMail'], $_SESSION['forget-password_ID-user']);
                         Header('Location: ' . HTML_ROOT . '/login?forget=true');
                         die();
