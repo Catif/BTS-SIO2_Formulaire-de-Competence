@@ -59,14 +59,13 @@ form input[type='submit']{
     background-color: hsl(0, 0%, 5%);
 }
 
-form input:disabled{
+input:disabled{
     color: #000;
     background-color: hsl(0, 0%, 75%);
 }
-form input:disabled:hover{
+input:disabled:hover{
     cursor: not-allowed;
 }
-
 
 
 

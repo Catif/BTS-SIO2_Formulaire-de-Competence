@@ -32,7 +32,7 @@ $tabIndicateur = $req->fetchAll();
 
 
     <div id="modal-Savoir" class="modal">
-        <h2 class="text-center">Savoir :</h2>
+        <h2 class="text-center">Savoir</h2>
         <table class="skills">
             <thead>
             <tr>
@@ -61,7 +61,7 @@ $tabIndicateur = $req->fetchAll();
 
     <div id="modal-Indicateur" class="modal">
 
-        <h2 class="text-center">Savoir :</h2>
+        <h2 class="text-center">Indicateur</h2>
         <table class="skills">
             <thead>
                 <tr>

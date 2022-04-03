@@ -60,19 +60,19 @@
       <tr>
         <th>Identifiant</th>
         <th>Libelé</th>
-        <!-- <th>Mise en Œuvre</th>
+        <th>Mise en Œuvre</th>
         <th>En cours d'Acquisition</th>
-        <th>Acquise</th> -->
+        <th>Acquise</th>
       </tr>
     </thead>
     <tbody>
       <?php foreach($skills as $skill): ?>
         <tr>
-          <td class="N_Item"><?= $skill[$N_Item] ?></td>
-          <td class="Libel_Item"><?= $skill['LIBEL_ITEM'] ?></td>
-          <!-- <td><?= 'En construction' ?></td>
-          <td><?= 'En construction' ?></td>
-          <td><?= 'En construction' ?></td> -->
+          <td class="text-center"><?= $skill[$N_Item] ?></td>
+          <td><?= $skill['LIBEL_ITEM'] ?></td>
+          <td class="checkbox"><input name="Savoir_Mise-En-Oeuvre_<?= $savoir['N_ITEM_SAVOIR'] ?>" type="checkbox" <?= isset($skill['']) ? 'checked' : '' ?> disabled></td>
+          <td class="checkbox"><input name="Savoir_En-Cours_<?= $savoir['N_ITEM_SAVOIR'] ?>" type="checkbox" <?= isset($skill['']) ? 'checked' : '' ?> disabled></td>
+          <td class="checkbox"><input name="Savoir_Acquise_<?= $savoir['N_ITEM_SAVOIR'] ?>" type="checkbox" <?= isset($skill['']) ? 'checked' : '' ?> disabled></td>
         </tr>
       <?php endforeach; ?>
     </tbody>

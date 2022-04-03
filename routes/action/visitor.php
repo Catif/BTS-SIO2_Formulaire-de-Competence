@@ -97,6 +97,16 @@ Voici le code pour la vérification du changement de mot de passe : {$_SESSION['
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
 if (!empty($_GET)){
     if ($match['target'] === 'login'){
         if(isset($_GET['forget']) && $_GET['forget'] === 'true'){

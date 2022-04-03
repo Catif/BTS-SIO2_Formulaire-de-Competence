@@ -31,6 +31,9 @@ if(!empty($_POST)){
     }
 
 
+
+
+
     // Requet POST in Setting page
     if ($match['target'] === 'panel/setting'){
         if(isset($_POST['old_password'], $_POST['new_password'], $_POST['new-verif_password'])){
@@ -58,5 +61,14 @@ if(!empty($_POST)){
                 $alert = ['error', 'Votre ancien mot de passe ne correspond pas.'];
             }
         }
+    }
+
+
+
+
+
+    // Requet POST in Create Project page
+    if ($match['target'] === 'panel/project/create'){
+        $alert = ['error', 'Cette fonctionnalité n\'est pas encore disponible.'];
     }
 }
