@@ -38,9 +38,7 @@ $tabIndicateur = $req->fetchAll();
             <tr>
                 <th>Identifiant</th>
                 <th>Libelé</th>
-                <th class="checkbox">Mise en Œuvre</th>
-                <th class="checkbox">En cours d'Acquisition</th>
-                <th class="checkbox">Acquise</th>
+                <th class="checkbox">Mobiliser</th>
             </tr>
             </thead>
             <tbody>
@@ -48,9 +46,7 @@ $tabIndicateur = $req->fetchAll();
                     <tr>
                     <td class="text-center"><?= $savoir['N_ITEM_SAVOIR'] ?></td>
                     <td><?= $savoir['LIBEL_ITEM'] ?></td>
-                    <td class="checkbox"><input name="Savoir_Mise-En-Oeuvre_<?= $savoir['N_ITEM_SAVOIR'] ?>" type="checkbox" <?= isset($savoir['']) ? 'checked' : '' ?>></td>
-                    <td class="checkbox"><input name="Savoir_En-Cours_<?= $savoir['N_ITEM_SAVOIR'] ?>" type="checkbox" <?= isset($savoir['']) ? 'checked' : '' ?>></td>
-                    <td class="checkbox"><input name="Savoir_Acquise_<?= $savoir['N_ITEM_SAVOIR'] ?>" type="checkbox" <?= isset($savoir['']) ? 'checked' : '' ?>></td>
+                    <td class="checkbox"><input name="Savoir/<?= $savoir['N_ITEM_SAVOIR'] ?>" type="checkbox" <?= isset($savoir['']) ? 'checked' : '' ?>></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -67,9 +63,7 @@ $tabIndicateur = $req->fetchAll();
                 <tr>
                     <th>Identifiant</th>
                     <th>Libelé</th>
-                    <th class="checkbox">Mise en Œuvre</th>
-                    <th class="checkbox">En cours d'Acquisition</th>
-                    <th class="checkbox">Acquise</th>
+                    <th class="checkbox">Indicateur</th>
                 </tr>
             </thead>
             <tbody>
@@ -77,9 +71,7 @@ $tabIndicateur = $req->fetchAll();
                     <tr>
                     <td class="text-center"><?= $indicateur['N_ITEM_INDICATEUR'] ?></td>
                     <td><?= $indicateur['LIBEL_ITEM'] ?></td>
-                    <td class="checkbox"><input name="Indicateur_Mise-En-Oeuvre_<?= $indicateur['N_ITEM_INDICATEUR'] ?>" type="checkbox" <?= isset($savoir['']) ? 'checked' : '' ?>></td>
-                    <td class="checkbox"><input name="Indicateur_En-Cours_<?= $indicateur['N_ITEM_INDICATEUR'] ?>" type="checkbox" <?= isset($savoir['']) ? 'checked' : '' ?>></td>
-                    <td class="checkbox"><input name="Indicateur_Acquise_<?= $indicateur['N_ITEM_INDICATEUR'] ?>" type="checkbox" <?= isset($savoir['']) ? 'checked' : '' ?>></td>
+                    <td class="checkbox"><input name="Indicateur/<?= $indicateur['N_ITEM_INDICATEUR'] ?>" type="checkbox" <?= isset($savoir['']) ? 'checked' : '' ?>></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
