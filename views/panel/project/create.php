@@ -3,7 +3,6 @@ $req = $db->query('SELECT * FROM item_savoir');
 $tabSavoir = $req->fetchAll();
 $req = $db->query('SELECT * FROM item_indicateur');
 $tabIndicateur = $req->fetchAll();
-
 ?>
 
 
@@ -69,9 +68,9 @@ $tabIndicateur = $req->fetchAll();
             <tbody>
                 <?php foreach($tabIndicateur as $k => $indicateur): ?>
                     <tr>
-                    <td class="text-center"><?= $indicateur['N_ITEM_INDICATEUR'] ?></td>
-                    <td><?= $indicateur['LIBEL_ITEM'] ?></td>
-                    <td class="checkbox"><input name="Indicateur/<?= $indicateur['N_ITEM_INDICATEUR'] ?>" type="checkbox" <?= isset($savoir['']) ? 'checked' : '' ?>></td>
+                        <td class="text-center"><?= $indicateur['N_ITEM_INDICATEUR'] ?></td>
+                        <td><?= $indicateur['LIBEL_ITEM'] ?></td>
+                        <td class="checkbox"><input name="Indicateur/<?= $indicateur['N_ITEM_INDICATEUR'] ?>" type="checkbox" <?= isset($savoir['']) ? 'checked' : '' ?>></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

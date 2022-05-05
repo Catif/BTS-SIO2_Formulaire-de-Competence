@@ -74,32 +74,64 @@ if(!empty($_POST)){
             foreach($_POST as $k => $element){
                 $k = explode("/", $k);
                 if($k[0] === 'Savoir'){
-                    array_push($savoirs, [$k[1], $element]);
+                    array_push($savoirs, $k[1]);
                 } elseif($k[0] === 'Indicateur'){
-                    array_push($indicateurs, [$k[1], $element]);
+                    array_push($indicateurs, $k[1]);
                 }
             }
             if(count($savoirs) > 0 && count($indicateurs) > 0){
-                echo('savoir : ');
-                var_dump($savoirs);
-                echo('<br>Indicateur : ');
-                var_dump($indicateurs);
+                // echo('savoir : ');
+                // var_dump($savoirs);
+                // echo('<br>Indicateur : ');
+                // var_dump($indicateurs);
 
 
                 $db->query('INSERT INTO projet (LIBEL_PROJET) VALUES (:name)', [
                     ':name' => $_POST['name-Project']
                 ]);
                 $id_Project = $db->returnLastInsertId();
-                $db->query('INSERT INTO realiser (ID_PROJET, IDENTIFIANT_ETUD) VALUES (:idProjet, :idEtud)', [
+                $db->query('INSERT INTO realiser VALUES (:idProjet, :idEtud)', [
                     ':idProjet' => $id_Project,
                     ':idEtud' => $_SESSION['user-id']
                 ]);
 
                 foreach($savoirs as $savoir){
-                    //Requête try catch vs 3 requêtes (Select ->  Insert|Update)
+                    $savoir = str_replace('_', '.', $savoir);
+
+                    // Ajout des savoirs dans le tableau MAITRISER
+                    $db->query('
+                        INSERT INTO maitriser VALUES (:item, :idEtud, 1) 
+                        ON DUPLICATE KEY
+                        UPDATE MAITRISE = 1
+                    ', [
+                        ':item' => $savoir,
+                        ':idEtud' => $_SESSION['user-id']
+                    ]);
+
+                    // Ajout des savoirs dans le tableau MOBILISER
+                    $db->query('
+                        INSERT INTO mobiliser VALUES (:item, :idProject)
+                    ', [
+                        ':item' => $savoir,
+                        ':idProject' => $id_Project
+                    ]);
+                    echo('test2');
+                }
+
+                foreach($indicateurs as $indicateur){
+                    $indicateur = str_replace('_', '.', $indicateur);
+                    echo($indicateur);
+
+                    // Ajout des savoirs dans le tableau INDICATEUR
+                    $db->query('
+                        INSERT INTO indicateur VALUES (:item, :idProject)
+                    ', [
+                        ':item' => $indicateur,
+                        ':idProject' => $id_Project
+                    ]);
                 }
             } else {
-                $alert = ['error', 'Vous devez sélectionner au moins élément dans chaque domaine (Savoir ET Indicateur).'];
+                $alert = ['error', 'Vous devez sélectionner au moins un élément dans chaque domaine (Savoir ET Indicateur).'];
             }
         }
     }
