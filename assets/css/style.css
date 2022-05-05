@@ -374,6 +374,27 @@ form#Connexion input[type="password"], form#Forget-Password input[name="new-veri
         }
 
 
+        /* ===============================
+                Page "Liste des projets"
+        =============================== */
+        table form{
+            margin: 0;
+        }
+
+        table .btn{
+            width: 100%;
+            padding: 2px 5px;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        table .btn svg{
+            font-size: 16px;
+            position: relative;
+            top: 3px;
+        }
+
+
 
 
 
@@ -541,7 +562,6 @@ table.skills tbody tr td input[type='checkbox']{
 
     transition: all 0.1s;
 }
-
 .btn:hover{
     transform: scale(105%);
 }
@@ -551,11 +571,10 @@ table.skills tbody tr td input[type='checkbox']{
     color: hsl(0, 0%, 5%);
     border: 4px solid hsl(0, 0%, 10%);
 }
-
 .btn-primary:active{
     background-color: hsl(0, 0%, 5%);
     color:hsl(0, 0%, 90%);
-    border: hsl(0, 0%, 90%);
+    border-color: hsl(0, 0%, 90%);
 }
 
 .btn-secondary{
@@ -563,11 +582,10 @@ table.skills tbody tr td input[type='checkbox']{
     color: hsl(0, 0%, 90%);
     border: 4px solid hsl(0, 0%, 7%);
 }
-
 .btn-secondary:active{
     background-color: hsl(0, 0%, 90%);
     color: hsl(0, 0%, 20%);
-    border: hsl(0, 0%, 90%);
+    border-color: hsl(0, 0%, 90%);
 }
 
 

@@ -63,7 +63,6 @@ $mail->Password = $_ENV['mail_forget_password'];
 $mail->CharSet = 'utf-8';
 
 
-
 // Chargement des fichiers de l'application
 require PHP_ROOT . "/assets/function.php";
 require PHP_ROOT . "/routes/route.php";

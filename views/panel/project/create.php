@@ -34,18 +34,18 @@ $tabIndicateur = $req->fetchAll();
         <h2 class="text-center">Savoir</h2>
         <table class="skills">
             <thead>
-            <tr>
-                <th>Identifiant</th>
-                <th>Libelé</th>
-                <th class="checkbox">Mobiliser</th>
-            </tr>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Libelé</th>
+                    <th class="checkbox">Mobiliser</th>
+                </tr>
             </thead>
             <tbody>
                 <?php foreach($tabSavoir as $k => $savoir): ?>
                     <tr>
-                    <td class="text-center"><?= $savoir['N_ITEM_SAVOIR'] ?></td>
-                    <td><?= $savoir['LIBEL_ITEM'] ?></td>
-                    <td class="checkbox"><input name="Savoir/<?= $savoir['N_ITEM_SAVOIR'] ?>" type="checkbox" <?= isset($savoir['']) ? 'checked' : '' ?>></td>
+                        <td class="text-center"><?= $savoir['N_ITEM_SAVOIR'] ?></td>
+                        <td><?= $savoir['LIBEL_ITEM'] ?></td>
+                        <td class="checkbox"><input name="Savoir/<?= $savoir['N_ITEM_SAVOIR'] ?>" type="checkbox" <?= isset($savoir['']) ? 'checked' : '' ?>></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
