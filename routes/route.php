@@ -19,8 +19,8 @@
         // Routes Projects
             $router->map('GET|POST', '/panel/project/create', 'panel/project/create', 'Add Project');
 
-            $router->map('GET|POST', '/panel/project/list', 'panel/project/view', 'View list of Projects');
-            $router->map('GET|POST', '/panel/project/view/[i:id]', 'panel/project/view', 'View a specific Project');
+            $router->map('GET|POST', '/panel/project/list', 'panel/project/list', 'View list of Projects');
+            $router->map('GET|POST', '/panel/project/edit/[i:id]', 'panel/project/edit', 'edit a specific Project');
 
 
 // Array to create variable for each routes : $match['target'] = $routerName['id']
@@ -43,7 +43,7 @@ $routerName = [
             ['id' => 'panel/project/create',   'title' => 'Ajout d\'un projet',         'divId' => 'Projet-add'],
 
             ['id' => 'panel/project/list',     'title' => 'Liste des projets',          'divId' => 'Projet-list'],
-            ['id' => 'panel/project/view',     'title' => 'Propriété du projet',        'divId' => 'Projet-view']
+            ['id' => 'panel/project/edit',     'title' => 'Propriété du projet',        'divId' => 'Projet-edit']
 ];
 
 require PHP_ROOT . '/routes/route_action.php';

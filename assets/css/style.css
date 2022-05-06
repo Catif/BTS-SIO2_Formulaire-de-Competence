@@ -28,7 +28,6 @@ form{
     align-items: center;
     flex-direction: column;
 
-    margin-top: 20px;
     width:100%;
 }
 
@@ -543,13 +542,10 @@ table.skills tbody tr td input[type='checkbox']{
 }
 
 .btn{
-    position: relative;
-    bottom: 0px;
-
     cursor: pointer;
 
     margin-top: 10px;
-    padding: 10px 30px;
+    padding: 7px 30px;
     width: 300px;
 
     text-align: center;
@@ -586,6 +582,17 @@ table.skills tbody tr td input[type='checkbox']{
     background-color: hsl(0, 0%, 90%);
     color: hsl(0, 0%, 20%);
     border-color: hsl(0, 0%, 90%);
+}
+
+.btn-danger{
+    background-color: hsl(0, 100%, 25%);
+    color: hsl(0, 100%, 95%);
+    border: 4px solid hsl(0, 0%, 7%);
+}
+.btn-danger:active{
+    background-color: hsl(0, 100%, 10%);
+    color: hsl(0, 100%, 95%);
+    border: 4px solid hsl(0, 0%, 7%);
 }
 
 
@@ -627,12 +634,13 @@ table.skills tbody tr td input[type='checkbox']{
 
 .modal{
     display: none;
+
     position: absolute;
     top: 30px;
     left: 50%;
     transform: translate(-50%,0);
 
-    width: 80vw;
+    width: 85vw;
     padding: 10px 20px;
     border-radius: 10px;
 
@@ -650,4 +658,19 @@ table.skills tbody tr td input[type='checkbox']{
 
 .modal .skills{
     width: 100%;
+}
+
+.btn-modal{
+    width: 100%;
+}
+.btn-modal:hover{
+    transform: scale(100%);
+
+    
+}
+
+.overflow{
+    overflow-y: scroll;
+    max-height: 60vh;
+    padding-right:3px;
 }

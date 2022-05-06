@@ -1,4 +1,21 @@
 <?php
+$req = $db->query(
+'SELECT * FROM projet 
+INNER JOIN realiser ON realiser.ID_PROJET = projet.ID_PROJET 
+WHERE realiser.IDENTIFIANT_ETUD = :idEtud AND realiser.ID_PROJET = :idProjet
+', [
+    ':idProjet' => $match['params']['id'],
+    ':idEtud' => $_SESSION['user-id']
+]);
+$project = $req->fetch();
+
+if(empty($project)){
+    header('Location:' . HTML_ROOT . '/panel/project/list?alerte=notFound');
+    die();
+}
+
+
+
 $req = $db->query('SELECT * FROM item_savoir');
 $tabSavoir = $req->fetchAll();
 
@@ -14,13 +31,13 @@ $tabIndicateur = $req->fetchAll();
 
 <?php createAlert($alert) ?>
 
-<h1 class="title">Ajout d'un projet</h1>
+<h1 class="title">Modification d'un projet</h1>
 
-<form id="add-project" action="" method="POST">
-    <input name="name-Project" type="text" placeholder="Nom du Projet" <?= isset($_POST['name-Project']) ? 'value="' . $_POST['name-Project'] . '"' : '' ?> minlength="3" maxlength="40" required>
+<form id="edit-project" action="" method="POST">
+    <input name="name-Project" type="text" placeholder="Nom du Projet" value="<?= $project['LIBEL_PROJET'] ?>" minlength="3" maxlength="40" required>
 
     <p class="text-center mt-20">
-    Avant de cliquer sur <u>Ajouter le projet</u>,<br> vous devez d'abord sélectionner <u>des Savoirs</u> et <u>des Indicateurs</u> utilisés pendant votre projet.
+        Avant de cliquer sur <u>Modifier le projet</u>,<br> vous devez d'abord avoir au moins <u>un Savoir</u> et <u>un Indicateurs</u> de sélectionné dans votre projet.
     </p>
     <div class="list-button">
         <button type="button" class="btn btn-secondary" onClick="openModal('modal-Savoir')">Savoirs</button>
@@ -48,7 +65,7 @@ $tabIndicateur = $req->fetchAll();
                             <td class="text-center"><?= $savoir['N_ITEM_SAVOIR'] ?></td>
                             <td><?= $savoir['LIBEL_ITEM'] ?></td>
                             <td class="checkbox">
-                                <input name="Savoir/<?= $savoir['N_ITEM_SAVOIR'] ?>" type="checkbox">
+                                <input name="Savoir/<?= $savoir['N_ITEM_SAVOIR'] ?>" type="checkbox" <?= isset($savoir['']) ? 'checked' : '' ?>>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -78,7 +95,7 @@ $tabIndicateur = $req->fetchAll();
                             <td class="text-center"><?= $indicateur['N_ITEM_INDICATEUR'] ?></td>
                             <td><?= $indicateur['LIBEL_ITEM'] ?></td>
                             <td class="checkbox">
-                                <input name="Indicateur/<?= $indicateur['N_ITEM_INDICATEUR'] ?>" type="checkbox">
+                                <input name="Indicateur/<?= $indicateur['N_ITEM_INDICATEUR'] ?>" type="checkbox" <?= isset($savoir['']) ? 'checked' : '' ?>>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -88,7 +105,16 @@ $tabIndicateur = $req->fetchAll();
         <button type="button" class="btn btn-primary btn-modal" onClick="closeModal()">Sauvegarder les indicateurs</button>
     </div>
 
-    <button type="submit" class="btn btn-primary">Ajouter le projet</button>
+    <input type="hidden" name="action" value="edit">
+    <input type="hidden" name="project" value="<?= $match['params']['id'] ?>">
+
+    <button type="submit" class="btn btn-primary">Modifier le projet</button>
+</form>
+<form id="delete-project" action="" method="POST">
+    <input type="hidden" name="action" value="delete">
+    <input type="hidden" name="project" value="<?= $match['params']['id'] ?>">
+
+    <button type="submit" class="btn btn-danger">Supprimer le projet</button>
 </form>
 
 <div id="modal-shadow" onClick="closeModal()"></div>
