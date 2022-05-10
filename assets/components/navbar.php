@@ -54,19 +54,6 @@
                         <?php endforeach; ?>
                     </div>
                 </div>
-    
-    
-    
-    
-                <div class="nav-item">
-                    <a href="<?= HTML_ROOT ?>/panel/skills/indicator"><span class="iconify" data-icon="ep:warning-filled"></span> Indicateurs</a>
-                    
-                    <div class="nav-list">
-                        <?php foreach($array_block as $k => $bloc): ?>
-                            <a href="<?= HTML_ROOT ?>/panel/skills/indicator/<?= $k + 1 ?>"><?= $bloc[0] ?></a>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
