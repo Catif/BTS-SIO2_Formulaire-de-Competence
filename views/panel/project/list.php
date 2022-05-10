@@ -1,5 +1,9 @@
 <?php
-$req = $db->query('SELECT * FROM projet');
+$req = $db->query('SELECT * FROM projet 
+INNER JOIN realiser ON realiser.ID_PROJET = projet.ID_PROJET 
+WHERE realiser.IDENTIFIANT_ETUD = :idEtud', [
+    ':idEtud' => $_SESSION['user-id']
+]);
 $tabProjet = $req->fetchAll();
 ?>
 

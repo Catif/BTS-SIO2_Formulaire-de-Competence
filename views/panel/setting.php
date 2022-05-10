@@ -13,7 +13,7 @@ $result = $req->fetch();
     <div class="card">
         <div class="column">
             <p><u>Information</u></p>
-            <input type="text" value="<?= ucfirst(strtolower($result['PRENOM_ETUD'])) . ' ' . strtoupper($result['PRENOM_ETUD']) ?>" disabled>
+            <input type="text" value="<?= ucfirst(strtolower($result['PRENOM_ETUD'])) . ' ' . strtoupper($result['NOM_ETUD']) ?>" disabled>
             <input type="mail" value="<?= $result['MAIL_ETUD'] ?>" disabled>
             <input type="text" value="BTS SIO" disabled>
             <input type="text" value="<?= $result['OPTION_BTS_ETUD'] ?>" disabled>
